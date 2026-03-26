@@ -34,7 +34,7 @@ import {
   Smartphone,
   Database,
   Brain,
-  Activity
+  Activity,
 } from "lucide-react";
 
 // --- DATA (Fully Restored) ---
@@ -71,9 +71,9 @@ const energyFlowData = [
 
 // --- HELPER TO GET CHART TOOLTIP STYLE BASED ON THEME ---
 const getTooltipStyle = (isDark) => ({
-  backgroundColor: isDark ? '#1e293b' : '#ffffff',
-  borderColor: isDark ? '#334155' : '#e2e8f0',
-  color: isDark ? '#f8fafc' : '#0f172a',
+  backgroundColor: isDark ? "#1e293b" : "#ffffff",
+  borderColor: isDark ? "#334155" : "#e2e8f0",
+  color: isDark ? "#f8fafc" : "#0f172a",
   fontSize: 13,
   borderRadius: 12,
 });
@@ -82,39 +82,66 @@ const getTooltipStyle = (isDark) => ({
 
 function Slide1({ isDark }) {
   return (
-    <div className={`h-full relative overflow-y-auto md:overflow-hidden flex items-center justify-center p-4 md:p-6 ${isDark ? 'bg-slate-900' : 'bg-slate-50'}`} style={{ minHeight: 520 }}>
+    <div
+      className={`h-full relative overflow-y-auto md:overflow-hidden flex items-center justify-center p-4 md:p-6 ${
+        isDark ? "bg-slate-900" : "bg-slate-50"
+      }`}
+      style={{ minHeight: 520 }}
+    >
       {/* Background Image */}
       <img
         src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80"
         alt="Solar panels on rooftop"
-        className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${isDark ? 'opacity-40 mix-blend-luminosity' : 'opacity-100'}`}
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${
+          isDark ? "opacity-40 mix-blend-luminosity" : "opacity-100"
+        }`}
       />
-      <div className={`absolute inset-0 transition-all duration-300 ${isDark ? 'bg-slate-950/60' : 'bg-slate-900/30'}`} />
+      <div
+        className={`absolute inset-0 transition-all duration-300 ${
+          isDark ? "bg-slate-950/60" : "bg-slate-900/30"
+        }`}
+      />
 
       {/* Content */}
-      <div className={`relative z-10 backdrop-blur-md rounded-3xl p-6 md:p-8 border shadow-xl max-w-2xl w-full flex flex-col items-center text-center transition-all duration-300 ${isDark ? 'bg-slate-900/80 border-slate-700 shadow-black/50' : 'bg-white/90 border-slate-100'}`}>
+      <div
+        className={`relative z-10 backdrop-blur-md rounded-3xl p-6 md:p-8 border shadow-xl max-w-2xl w-full flex flex-col items-center text-center transition-all duration-300 ${
+          isDark
+            ? "bg-slate-900/80 border-slate-700 shadow-black/50"
+            : "bg-white/90 border-slate-100"
+        }`}
+      >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/20">
             <Sun className="text-white" size={20} />
           </div>
           <span
-            className={`text-2xl md:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}
+            className={`text-2xl md:text-3xl font-black tracking-tight ${
+              isDark ? "text-white" : "text-slate-800"
+            }`}
             style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
           >
             EcoTrade
           </span>
         </div>
 
-        <p className={`font-bold uppercase tracking-widest text-xs md:text-sm mb-3 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+        <p
+          className={`font-bold uppercase tracking-widest text-xs md:text-sm mb-3 ${
+            isDark ? "text-emerald-400" : "text-emerald-600"
+          }`}
+        >
           Decentralized SaaS Virtual Power Plant
         </p>
 
         <h1
-          className={`text-xl md:text-2xl font-black leading-snug mb-6 max-w-lg ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black leading-snug mb-6 max-w-lg ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           Democratise clean solar access{" "}
-          <span className={isDark ? 'text-emerald-400' : 'text-emerald-500'}>without owning panels.</span>
+          <span className={isDark ? "text-emerald-400" : "text-emerald-500"}>
+            without owning panels.
+          </span>
         </h1>
 
         {/* Stats */}
@@ -127,7 +154,7 @@ function Slide1({ isDark }) {
               accentDark: "text-emerald-400",
               accentLight: "text-emerald-600",
               bgDark: "bg-emerald-500/10 border-emerald-500/20",
-              bgLight: "bg-emerald-50 border-emerald-100"
+              bgLight: "bg-emerald-50 border-emerald-100",
             },
             {
               label: "Current Fossil Reliance",
@@ -136,7 +163,7 @@ function Slide1({ isDark }) {
               accentDark: "text-red-400",
               accentLight: "text-red-500",
               bgDark: "bg-red-500/10 border-red-500/20",
-              bgLight: "bg-red-50 border-red-100"
+              bgLight: "bg-red-50 border-red-100",
             },
             {
               label: "Avg Solar Hardware Cost",
@@ -145,18 +172,30 @@ function Slide1({ isDark }) {
               accentDark: "text-amber-400",
               accentLight: "text-amber-500",
               bgDark: "bg-amber-500/10 border-amber-500/20",
-              bgLight: "bg-amber-50 border-amber-100"
+              bgLight: "bg-amber-50 border-amber-100",
             },
           ].map((s) => (
             <div
               key={s.label}
-              className={`flex flex-col items-center gap-1.5 border rounded-2xl p-4 text-center shadow-sm transition-all duration-300 ${isDark ? s.bgDark : s.bgLight}`}
+              className={`flex flex-col items-center gap-1.5 border rounded-2xl p-4 text-center shadow-sm transition-all duration-300 ${
+                isDark ? s.bgDark : s.bgLight
+              }`}
             >
-              <span className={isDark ? s.accentDark : s.accentLight}>{s.icon}</span>
-              <span className={`font-black text-2xl ${isDark ? s.accentDark : s.accentLight}`}>
+              <span className={isDark ? s.accentDark : s.accentLight}>
+                {s.icon}
+              </span>
+              <span
+                className={`font-black text-2xl ${
+                  isDark ? s.accentDark : s.accentLight
+                }`}
+              >
                 {s.value}
               </span>
-              <span className={`text-xs md:text-sm font-medium leading-snug ${isDark ? 'text-slate-300' : 'text-slate-500'}`}>
+              <span
+                className={`text-xs md:text-sm font-medium leading-snug ${
+                  isDark ? "text-slate-300" : "text-slate-500"
+                }`}
+              >
                 {s.label}
               </span>
             </div>
@@ -169,13 +208,23 @@ function Slide1({ isDark }) {
 
 function Slide2({ isDark }) {
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-white"
+      }`}
+    >
       <div className="mb-4">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           Problem Statement
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           The Monopoly of the Roof
@@ -223,13 +272,29 @@ function Slide2({ isDark }) {
         ].map((card) => (
           <div
             key={card.title}
-            className={`border rounded-2xl p-4 ${isDark ? card.colorDark : card.colorLight}`}
+            className={`border rounded-2xl p-4 ${
+              isDark ? card.colorDark : card.colorLight
+            }`}
           >
-            <div className={`mb-2 ${isDark ? card.iconColorDark : card.iconColorLight}`}>{card.icon}</div>
-            <div className={`font-black text-base md:text-lg mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            <div
+              className={`mb-2 ${
+                isDark ? card.iconColorDark : card.iconColorLight
+              }`}
+            >
+              {card.icon}
+            </div>
+            <div
+              className={`font-black text-base md:text-lg mb-1 ${
+                isDark ? "text-white" : "text-slate-800"
+              }`}
+            >
               {card.title}
             </div>
-            <div className={`text-xs md:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            <div
+              className={`text-xs md:text-sm leading-relaxed ${
+                isDark ? "text-slate-300" : "text-slate-600"
+              }`}
+            >
               {card.body}
             </div>
           </div>
@@ -237,22 +302,44 @@ function Slide2({ isDark }) {
       </div>
 
       <div className="flex-1 min-h-[200px] md:min-h-0">
-        <div className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
+        <div
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${
+            isDark ? "text-slate-300" : "text-slate-800"
+          }`}
+        >
           Malaysia Grid Mix Trend & NETR Target (70% Renewables by 2050)
         </div>
         <ResponsiveContainer width="100%" height={160}>
           <BarChart data={gridMixData} barCategoryGap="25%">
-            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "#334155" : "#f1f5f9"} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={isDark ? "#334155" : "#f1f5f9"}
+            />
             <XAxis dataKey="year" tick={{ fontSize: 12, fill: "#94a3b8" }} />
             <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} unit="%" />
             <Tooltip
               formatter={(v) => `${v}%`}
               contentStyle={getTooltipStyle(isDark)}
-              itemStyle={{ color: isDark ? '#f8fafc' : '#0f172a' }}
+              itemStyle={{ color: isDark ? "#f8fafc" : "#0f172a" }}
             />
-            <Legend wrapperStyle={{ fontSize: 13, color: isDark ? '#f8fafc' : '#0f172a' }} />
-            <Bar dataKey="fossil" name="Fossil Fuel %" fill={isDark ? "#ef4444" : "#fca5a5"} radius={[4, 4, 0, 0]} />
-            <Bar dataKey="renewable" name="Renewable %" fill={isDark ? "#10b981" : "#6ee7b7"} radius={[4, 4, 0, 0]} />
+            <Legend
+              wrapperStyle={{
+                fontSize: 13,
+                color: isDark ? "#f8fafc" : "#0f172a",
+              }}
+            />
+            <Bar
+              dataKey="fossil"
+              name="Fossil Fuel %"
+              fill={isDark ? "#ef4444" : "#fca5a5"}
+              radius={[4, 4, 0, 0]}
+            />
+            <Bar
+              dataKey="renewable"
+              name="Renewable %"
+              fill={isDark ? "#10b981" : "#6ee7b7"}
+              radius={[4, 4, 0, 0]}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -292,13 +379,23 @@ function Slide3({ isDark }) {
   ];
 
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-white"
+      }`}
+    >
       <div className="mb-4">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           SDG Alignment
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           Three Goals, One Platform
@@ -309,34 +406,57 @@ function Slide3({ isDark }) {
         {sdgs.map((sdg) => (
           <div
             key={sdg.num}
-            className={`border rounded-3xl p-5 md:p-6 shadow-lg flex flex-col h-full ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-100'}`}
+            className={`border rounded-3xl p-5 md:p-6 shadow-lg flex flex-col h-full ${
+              isDark
+                ? "bg-slate-800 border-slate-700"
+                : "bg-white border-slate-100"
+            }`}
           >
             <div className="flex flex-col gap-4 mb-4">
-              <div className={`w-14 h-14 rounded-2xl ${sdg.color} flex items-center justify-center shadow-md shrink-0`}>
+              <div
+                className={`w-14 h-14 rounded-2xl ${sdg.color} flex items-center justify-center shadow-md shrink-0`}
+              >
                 {sdg.icon}
               </div>
               <div>
                 <div className="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">
                   SDG {sdg.num}
                 </div>
-                <div className={`font-black text-lg md:text-xl leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                <div
+                  className={`font-black text-lg md:text-xl leading-snug ${
+                    isDark ? "text-white" : "text-slate-800"
+                  }`}
+                >
                   {sdg.title}
                 </div>
               </div>
             </div>
-            
+
             <div className="flex flex-col gap-2 mt-2 flex-1">
               {sdg.targets.map((t) => (
                 <div key={t} className="flex items-start gap-3">
-                  <CheckCircle size={18} className="text-emerald-500 mt-0.5 shrink-0" />
-                  <span className={`text-sm md:text-base font-semibold leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                  <CheckCircle
+                    size={18}
+                    className="text-emerald-500 mt-0.5 shrink-0"
+                  />
+                  <span
+                    className={`text-sm md:text-base font-semibold leading-relaxed ${
+                      isDark ? "text-slate-300" : "text-slate-700"
+                    }`}
+                  >
                     {t}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className={`text-sm md:text-base p-4 rounded-2xl leading-relaxed border mt-4 ${isDark ? 'bg-slate-900/50 border-slate-700 text-slate-400' : 'bg-slate-50 border-slate-100 text-slate-600'}`}>
+            <div
+              className={`text-sm md:text-base p-4 rounded-2xl leading-relaxed border mt-4 ${
+                isDark
+                  ? "bg-slate-900/50 border-slate-700 text-slate-400"
+                  : "bg-slate-50 border-slate-100 text-slate-600"
+              }`}
+            >
               {sdg.contribution}
             </div>
           </div>
@@ -379,13 +499,23 @@ function Slide4({ isDark }) {
   ];
 
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-white"
+      }`}
+    >
       <div className="mb-4">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           Solution Architecture
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           Decentralized AI-Driven SaaS VPP
@@ -396,13 +526,19 @@ function Slide4({ isDark }) {
         {components.map((c, i) => (
           <div
             key={c.title}
-            className={`border rounded-2xl p-4 flex flex-col gap-2 ${isDark ? c.colorDark : c.colorLight}`}
+            className={`border rounded-2xl p-4 flex flex-col gap-2 ${
+              isDark ? c.colorDark : c.colorLight
+            }`}
           >
             <div className="flex items-center gap-2 font-black text-sm md:text-base leading-tight">
               {c.icon}
               <span>{c.title}</span>
             </div>
-            <div className={`text-xs md:text-sm opacity-90 leading-relaxed flex-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            <div
+              className={`text-xs md:text-sm opacity-90 leading-relaxed flex-1 ${
+                isDark ? "text-slate-300" : "text-slate-700"
+              }`}
+            >
               {c.desc}
             </div>
           </div>
@@ -410,7 +546,11 @@ function Slide4({ isDark }) {
       </div>
 
       <div className="flex-1 min-h-[200px] md:min-h-0">
-        <div className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
+        <div
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${
+            isDark ? "text-slate-300" : "text-slate-800"
+          }`}
+        >
           Solar Energy Flow — Local Capture vs Grid Export (kWh)
         </div>
         <ResponsiveContainer width="100%" height={200}>
@@ -425,11 +565,19 @@ function Slide4({ isDark }) {
                 <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "#334155" : "#f1f5f9"} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={isDark ? "#334155" : "#f1f5f9"}
+            />
             <XAxis dataKey="hour" tick={{ fontSize: 12, fill: "#94a3b8" }} />
             <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} unit="kWh" />
             <Tooltip contentStyle={getTooltipStyle(isDark)} />
-            <Legend wrapperStyle={{ fontSize: 13, color: isDark ? '#f8fafc' : '#0f172a' }} />
+            <Legend
+              wrapperStyle={{
+                fontSize: 13,
+                color: isDark ? "#f8fafc" : "#0f172a",
+              }}
+            />
             <Area
               type="monotone"
               dataKey="local"
@@ -464,9 +612,17 @@ function Slide5({ isDark }) {
       titleColorDark: "text-emerald-400",
       titleColorLight: "text-emerald-800",
       metrics: [
-        { label: "Yield Improvement", value: "↑ % vs NEM", icon: <TrendingUp size={16}/> },
-        { label: "Execution Latency", value: "< 200ms", icon: <Zap size={16}/> },
-      ]
+        {
+          label: "Yield Improvement",
+          value: "↑ % vs NEM",
+          icon: <TrendingUp size={16} />,
+        },
+        {
+          label: "Execution Latency",
+          value: "< 200ms",
+          icon: <Zap size={16} />,
+        },
+      ],
     },
     {
       title: "Goal 2: Grid Efficiency",
@@ -476,9 +632,17 @@ function Slide5({ isDark }) {
       titleColorDark: "text-blue-400",
       titleColorLight: "text-blue-800",
       metrics: [
-        { label: "ESS Utilization", value: "Max Midday", icon: <Battery size={16}/> },
-        { label: "Data Accuracy", value: "99.9%", icon: <Activity size={16}/> },
-      ]
+        {
+          label: "ESS Utilization",
+          value: "Max Midday",
+          icon: <Battery size={16} />,
+        },
+        {
+          label: "Data Accuracy",
+          value: "99.9%",
+          icon: <Activity size={16} />,
+        },
+      ],
     },
     {
       title: "Goal 3: Climate Action",
@@ -488,20 +652,34 @@ function Slide5({ isDark }) {
       titleColorDark: "text-purple-400",
       titleColorLight: "text-purple-800",
       metrics: [
-        { label: "GHG Avoided", value: "mt CO₂e/mo", icon: <Leaf size={16}/> },
-        { label: "User Growth", value: "Active +% MoM", icon: <Users size={16}/> },
-      ]
-    }
+        { label: "GHG Avoided", value: "mt CO₂e/mo", icon: <Leaf size={16} /> },
+        {
+          label: "User Growth",
+          value: "Active +% MoM",
+          icon: <Users size={16} />,
+        },
+      ],
+    },
   ];
 
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-white"
+      }`}
+    >
       <div className="mb-4">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           Measurable Goals & Success Metrics
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           Evaluating the "Go Green" Ecosystem
@@ -510,19 +688,55 @@ function Slide5({ isDark }) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {goals.map((g) => (
-          <div key={g.title} className={`border rounded-2xl p-4 flex flex-col gap-3 shadow-sm ${isDark ? g.colorDark : g.colorLight}`}>
+          <div
+            key={g.title}
+            className={`border rounded-2xl p-4 flex flex-col gap-3 shadow-sm ${
+              isDark ? g.colorDark : g.colorLight
+            }`}
+          >
             <div>
-              <div className={`font-black text-base md:text-lg ${isDark ? g.titleColorDark : g.titleColorLight}`}>{g.title}</div>
-              <div className={`text-xs md:text-sm mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{g.desc}</div>
+              <div
+                className={`font-black text-base md:text-lg ${
+                  isDark ? g.titleColorDark : g.titleColorLight
+                }`}
+              >
+                {g.title}
+              </div>
+              <div
+                className={`text-xs md:text-sm mt-1 ${
+                  isDark ? "text-slate-300" : "text-slate-600"
+                }`}
+              >
+                {g.desc}
+              </div>
             </div>
             <div className="flex flex-col gap-2 mt-auto">
-              {g.metrics.map(m => (
-                <div key={m.label} className={`border rounded-xl p-3 shadow-sm flex items-center justify-between ${isDark ? 'bg-slate-800/80 border-slate-700' : 'bg-white border-slate-100'}`}>
-                  <div className={`flex items-center gap-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              {g.metrics.map((m) => (
+                <div
+                  key={m.label}
+                  className={`border rounded-xl p-3 shadow-sm flex items-center justify-between ${
+                    isDark
+                      ? "bg-slate-800/80 border-slate-700"
+                      : "bg-white border-slate-100"
+                  }`}
+                >
+                  <div
+                    className={`flex items-center gap-2 ${
+                      isDark ? "text-slate-400" : "text-slate-500"
+                    }`}
+                  >
                     {m.icon}
-                    <span className="text-xs md:text-sm font-semibold">{m.label}</span>
+                    <span className="text-xs md:text-sm font-semibold">
+                      {m.label}
+                    </span>
                   </div>
-                  <span className={`font-black text-xs md:text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{m.value}</span>
+                  <span
+                    className={`font-black text-xs md:text-sm ${
+                      isDark ? "text-white" : "text-slate-800"
+                    }`}
+                  >
+                    {m.value}
+                  </span>
                 </div>
               ))}
             </div>
@@ -531,16 +745,28 @@ function Slide5({ isDark }) {
       </div>
 
       <div className="flex-1 min-h-[200px] md:min-h-0">
-        <div className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
+        <div
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${
+            isDark ? "text-slate-300" : "text-slate-800"
+          }`}
+        >
           Goal 1 Indicator: Baseline NEM/SMP vs EcoTrade P2P (RM/month)
         </div>
         <ResponsiveContainer width="100%" height={160}>
           <LineChart data={prosumerROIData}>
-            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "#334155" : "#f1f5f9"} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={isDark ? "#334155" : "#f1f5f9"}
+            />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: "#94a3b8" }} />
             <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} unit="RM" />
             <Tooltip contentStyle={getTooltipStyle(isDark)} />
-            <Legend wrapperStyle={{ fontSize: 13, color: isDark ? '#f8fafc' : '#0f172a' }} />
+            <Legend
+              wrapperStyle={{
+                fontSize: 13,
+                color: isDark ? "#f8fafc" : "#0f172a",
+              }}
+            />
             <Line
               type="monotone"
               dataKey="baseline"
@@ -618,13 +844,23 @@ function Slide6({ isDark }) {
   ];
 
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-white"
+      }`}
+    >
       <div className="mb-5">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           Technical Architecture & Tech Stack
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           Real-Time Market Clearing & AI Automation
@@ -635,7 +871,9 @@ function Slide6({ isDark }) {
         {stack.map((s) => (
           <div
             key={s.layer}
-            className={`border rounded-2xl p-4 md:p-5 flex flex-col gap-2 ${isDark ? s.colorDark : s.colorLight}`}
+            className={`border rounded-2xl p-4 md:p-5 flex flex-col gap-2 ${
+              isDark ? s.colorDark : s.colorLight
+            }`}
           >
             <div className="flex items-center gap-2 font-bold text-sm">
               {s.icon}
@@ -643,14 +881,36 @@ function Slide6({ isDark }) {
                 {s.layer}
               </span>
             </div>
-            <div className={`font-black text-base md:text-lg ${isDark ? 'text-white' : ''}`}>{s.tech}</div>
-            <div className={`text-xs md:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-800 opacity-80'}`}>{s.desc}</div>
+            <div
+              className={`font-black text-base md:text-lg ${
+                isDark ? "text-white" : ""
+              }`}
+            >
+              {s.tech}
+            </div>
+            <div
+              className={`text-xs md:text-sm leading-relaxed ${
+                isDark ? "text-slate-300" : "text-slate-800 opacity-80"
+              }`}
+            >
+              {s.desc}
+            </div>
           </div>
         ))}
       </div>
 
-      <div className={`rounded-2xl border p-4 md:p-5 mt-auto ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-100'}`}>
-        <div className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
+      <div
+        className={`rounded-2xl border p-4 md:p-5 mt-auto ${
+          isDark
+            ? "bg-slate-800 border-slate-700"
+            : "bg-slate-50 border-slate-100"
+        }`}
+      >
+        <div
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
+            isDark ? "text-slate-300" : "text-slate-800"
+          }`}
+        >
           Data & AI Flow
         </div>
         <div className="flex items-center gap-2 flex-wrap">
@@ -668,11 +928,19 @@ function Slide6({ isDark }) {
             "Flutter App",
           ].map((item, i) =>
             item === "→" ? (
-              <ArrowRight key={i} size={16} className={isDark ? 'text-slate-500' : 'text-slate-300'} />
+              <ArrowRight
+                key={i}
+                size={16}
+                className={isDark ? "text-slate-500" : "text-slate-300"}
+              />
             ) : (
               <span
                 key={i}
-                className={`border rounded-xl px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-semibold shadow-sm ${isDark ? 'bg-slate-700 border-slate-600 text-white' : 'bg-white border-slate-200 text-slate-700'}`}
+                className={`border rounded-xl px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-semibold shadow-sm ${
+                  isDark
+                    ? "bg-slate-700 border-slate-600 text-white"
+                    : "bg-white border-slate-200 text-slate-700"
+                }`}
               >
                 {item}
               </span>
@@ -713,20 +981,45 @@ function Slide7({ isDark }) {
   ];
 
   const actionCards = [
-    { label: "SELL", bg: "bg-emerald-500", text: "text-white", desc: "Sell surplus" },
+    {
+      label: "SELL",
+      bg: "bg-emerald-500",
+      text: "text-white",
+      desc: "Sell surplus",
+    },
     { label: "BUY", bg: "bg-red-500", text: "text-white", desc: "Buy energy" },
-    { label: "ALERT", bg: "bg-amber-400", text: "text-white", desc: "Safety warning" },
-    { label: "MARKET", bg: "bg-blue-500", text: "text-white", desc: "Price update" },
+    {
+      label: "ALERT",
+      bg: "bg-amber-400",
+      text: "text-white",
+      desc: "Safety warning",
+    },
+    {
+      label: "MARKET",
+      bg: "bg-blue-500",
+      text: "text-white",
+      desc: "Price update",
+    },
   ];
 
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-white"
+      }`}
+    >
       <div className="mb-4">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           User Feedback & Iteration
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           50 Malaysian Users, 84% Aged 35+
@@ -734,72 +1027,210 @@ function Slide7({ isDark }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-        <div className={`border rounded-2xl p-4 md:p-5 ${isDark ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-emerald-50 border-emerald-200 text-emerald-700'}`}>
-            <div className="flex items-center gap-2 mb-2">
-              <Home size={18} />
-              <span className={`font-black text-xl md:text-2xl ${isDark ? 'text-emerald-300' : ''}`}>80%</span>
-            </div>
-            <div className={`font-bold text-sm md:text-base mb-1 ${isDark ? 'text-white' : ''}`}>Fintech-First Dashboard</div>
-            <div className={`flex items-start gap-2 text-xs md:text-sm opacity-90 ${isDark ? 'text-slate-300' : ''}`}>
-              <CheckCircle size={14} className="mt-1 shrink-0" />
-              <span>Users ignored hardware stats. Redesigned to lead with wallet balance & AI Risk Profile (Conservative/Aggressive).</span>
-            </div>
+        <div
+          className={`border rounded-2xl p-4 md:p-5 ${
+            isDark
+              ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
+              : "bg-emerald-50 border-emerald-200 text-emerald-700"
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <Home size={18} />
+            <span
+              className={`font-black text-xl md:text-2xl ${
+                isDark ? "text-emerald-300" : ""
+              }`}
+            >
+              80%
+            </span>
+          </div>
+          <div
+            className={`font-bold text-sm md:text-base mb-1 ${
+              isDark ? "text-white" : ""
+            }`}
+          >
+            Fintech-First Dashboard
+          </div>
+          <div
+            className={`flex items-start gap-2 text-xs md:text-sm opacity-90 ${
+              isDark ? "text-slate-300" : ""
+            }`}
+          >
+            <CheckCircle size={14} className="mt-1 shrink-0" />
+            <span>
+              Users ignored hardware stats. Redesigned to lead with wallet
+              balance & AI Risk Profile (Conservative/Aggressive).
+            </span>
+          </div>
         </div>
 
-        <div className={`border rounded-2xl p-4 md:p-5 ${isDark ? 'bg-purple-500/10 border-purple-500/20 text-purple-400' : 'bg-purple-50 border-purple-200 text-purple-700'}`}>
-            <div className="flex items-center gap-2 mb-2">
-              <Brain size={18} />
-              <span className={`font-black text-xl md:text-2xl ${isDark ? 'text-purple-300' : ''}`}>65%</span>
-            </div>
-            <div className={`font-bold text-sm md:text-base mb-1 ${isDark ? 'text-white' : ''}`}>Eliminating Autopilot Anxiety</div>
-            <div className={`flex items-start gap-2 text-xs md:text-sm opacity-90 ${isDark ? 'text-slate-300' : ''}`}>
-              <CheckCircle size={14} className="mt-1 shrink-0" />
-              <span>Regex tense sanitization converts past-tense AI statements into conditional recommendations in manual mode.</span>
-            </div>
+        <div
+          className={`border rounded-2xl p-4 md:p-5 ${
+            isDark
+              ? "bg-purple-500/10 border-purple-500/20 text-purple-400"
+              : "bg-purple-50 border-purple-200 text-purple-700"
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <Brain size={18} />
+            <span
+              className={`font-black text-xl md:text-2xl ${
+                isDark ? "text-purple-300" : ""
+              }`}
+            >
+              65%
+            </span>
+          </div>
+          <div
+            className={`font-bold text-sm md:text-base mb-1 ${
+              isDark ? "text-white" : ""
+            }`}
+          >
+            Eliminating Autopilot Anxiety
+          </div>
+          <div
+            className={`flex items-start gap-2 text-xs md:text-sm opacity-90 ${
+              isDark ? "text-slate-300" : ""
+            }`}
+          >
+            <CheckCircle size={14} className="mt-1 shrink-0" />
+            <span>
+              Regex tense sanitization converts past-tense AI statements into
+              conditional recommendations in manual mode.
+            </span>
+          </div>
         </div>
 
-        <div className={`border rounded-2xl p-4 md:p-5 col-span-1 md:col-span-2 ${isDark ? 'bg-amber-500/10 border-amber-500/20 text-amber-400' : 'bg-amber-50 border-amber-200 text-amber-700'}`}>
-            <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle size={18} />
-              <span className={`font-black text-xl md:text-2xl ${isDark ? 'text-amber-300' : ''}`}>72%</span>
-            </div>
-            <div className={`font-bold text-sm md:text-base mb-1 ${isDark ? 'text-white' : ''}`}>Human-Readable Alert Differentiation</div>
-            <div className={`flex items-start gap-2 text-xs md:text-sm opacity-90 mb-4 ${isDark ? 'text-slate-300' : ''}`}>
-              <CheckCircle size={14} className="mt-1 shrink-0" />
-              <span>Raw voltage warnings confused users. Dynamic color-coding instantly separates system safety from market opportunities:</span>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {actionCards.map((c) => (
-                <div key={c.label} className={`flex items-center gap-3 border rounded-xl p-3 shadow-sm ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-amber-100'}`}>
-                  <div className={`w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center shrink-0`}>
-                    <span className={`text-[9px] font-black tracking-wide ${c.text}`}>{c.label}</span>
-                  </div>
-                  <span className={`text-xs md:text-sm font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{c.desc}</span>
+        <div
+          className={`border rounded-2xl p-4 md:p-5 col-span-1 md:col-span-2 ${
+            isDark
+              ? "bg-amber-500/10 border-amber-500/20 text-amber-400"
+              : "bg-amber-50 border-amber-200 text-amber-700"
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <AlertTriangle size={18} />
+            <span
+              className={`font-black text-xl md:text-2xl ${
+                isDark ? "text-amber-300" : ""
+              }`}
+            >
+              72%
+            </span>
+          </div>
+          <div
+            className={`font-bold text-sm md:text-base mb-1 ${
+              isDark ? "text-white" : ""
+            }`}
+          >
+            Human-Readable Alert Differentiation
+          </div>
+          <div
+            className={`flex items-start gap-2 text-xs md:text-sm opacity-90 mb-4 ${
+              isDark ? "text-slate-300" : ""
+            }`}
+          >
+            <CheckCircle size={14} className="mt-1 shrink-0" />
+            <span>
+              Raw voltage warnings confused users. Dynamic color-coding
+              instantly separates system safety from market opportunities:
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {actionCards.map((c) => (
+              <div
+                key={c.label}
+                className={`flex items-center gap-3 border rounded-xl p-3 shadow-sm ${
+                  isDark
+                    ? "bg-slate-800 border-slate-700"
+                    : "bg-white border-amber-100"
+                }`}
+              >
+                <div
+                  className={`w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center shrink-0`}
+                >
+                  <span
+                    className={`text-[9px] font-black tracking-wide ${c.text}`}
+                  >
+                    {c.label}
+                  </span>
                 </div>
-              ))}
-            </div>
+                <span
+                  className={`text-xs md:text-sm font-semibold leading-snug ${
+                    isDark ? "text-slate-200" : "text-slate-700"
+                  }`}
+                >
+                  {c.desc}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <div>
-        <div className={`text-sm md:text-base font-black uppercase tracking-widest mb-3 ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
+        <div
+          className={`text-sm md:text-base font-black uppercase tracking-widest mb-3 ${
+            isDark ? "text-slate-300" : "text-slate-800"
+          }`}
+        >
           Technical Challenges → Solutions
         </div>
         <div className="flex flex-col gap-3">
           {challenges.map((c) => (
-            <div key={c.challenge} className={`border rounded-2xl p-4 flex flex-col md:flex-row md:items-start gap-4 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-100'}`}>
+            <div
+              key={c.challenge}
+              className={`border rounded-2xl p-4 flex flex-col md:flex-row md:items-start gap-4 ${
+                isDark
+                  ? "bg-slate-800 border-slate-700"
+                  : "bg-slate-50 border-slate-100"
+              }`}
+            >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="text-slate-400">{c.icon}</span>
-                  <span className={`font-bold text-sm md:text-base ${isDark ? 'text-white' : 'text-slate-800'}`}>{c.challenge}</span>
+                  <span
+                    className={`font-bold text-sm md:text-base ${
+                      isDark ? "text-white" : "text-slate-800"
+                    }`}
+                  >
+                    {c.challenge}
+                  </span>
                 </div>
-                <div className={`text-xs md:text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{c.detail}</div>
+                <div
+                  className={`text-xs md:text-sm leading-relaxed ${
+                    isDark ? "text-slate-400" : "text-slate-600"
+                  }`}
+                >
+                  {c.detail}
+                </div>
               </div>
-              <ArrowRight size={20} className="hidden md:block text-emerald-500 shrink-0 mt-3" />
-              <div className={`flex-1 min-w-0 border rounded-xl p-3 mt-2 md:mt-0 ${isDark ? 'bg-emerald-500/10 border-emerald-500/20' : 'bg-emerald-50 border-emerald-100'}`}>
-                <div className={`text-xs md:text-sm font-bold mb-1 ${isDark ? 'text-emerald-400' : 'text-emerald-800'}`}>Solution</div>
-                <div className={`text-xs md:text-sm leading-relaxed ${isDark ? 'text-emerald-200' : 'text-emerald-900'}`}>{c.solution}</div>
+              <ArrowRight
+                size={20}
+                className="hidden md:block text-emerald-500 shrink-0 mt-3"
+              />
+              <div
+                className={`flex-1 min-w-0 border rounded-xl p-3 mt-2 md:mt-0 ${
+                  isDark
+                    ? "bg-emerald-500/10 border-emerald-500/20"
+                    : "bg-emerald-50 border-emerald-100"
+                }`}
+              >
+                <div
+                  className={`text-xs md:text-sm font-bold mb-1 ${
+                    isDark ? "text-emerald-400" : "text-emerald-800"
+                  }`}
+                >
+                  Solution
+                </div>
+                <div
+                  className={`text-xs md:text-sm leading-relaxed ${
+                    isDark ? "text-emerald-200" : "text-emerald-900"
+                  }`}
+                >
+                  {c.solution}
+                </div>
               </div>
             </div>
           ))}
@@ -864,13 +1295,23 @@ function Slide8({ isDark }) {
   ];
 
   return (
-    <div className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${isDark ? 'bg-slate-900' : 'bg-slate-50'}`}>
+    <div
+      className={`h-full flex flex-col px-4 md:px-6 py-6 overflow-y-auto ${
+        isDark ? "bg-slate-900" : "bg-slate-50"
+      }`}
+    >
       <div className="mb-6 text-center">
-        <span className={`text-xs md:text-sm font-bold uppercase tracking-widest ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`}>
+        <span
+          className={`text-xs md:text-sm font-bold uppercase tracking-widest ${
+            isDark ? "text-emerald-400" : "text-emerald-500"
+          }`}
+        >
           Future Roadmap
         </span>
         <h2
-          className={`text-xl md:text-2xl font-black mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}
+          className={`text-xl md:text-2xl font-black mt-1 ${
+            isDark ? "text-white" : "text-slate-800"
+          }`}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           From Validation to ASEAN Scale
@@ -881,26 +1322,40 @@ function Slide8({ isDark }) {
         {phases.map((p) => (
           <div
             key={p.phase}
-            className={`border border-l-4 rounded-2xl p-4 md:p-5 shadow-sm flex flex-col md:flex-row md:items-center gap-3 md:gap-6 ${isDark ? `${p.colorDark} bg-slate-800 border-slate-700` : `${p.colorLight} bg-white border-slate-100`}`}
+            className={`border border-l-4 rounded-2xl p-4 md:p-5 shadow-sm flex flex-col md:flex-row md:items-center gap-3 md:gap-6 ${
+              isDark
+                ? `${p.colorDark} bg-slate-800 border-slate-700`
+                : `${p.colorLight} bg-white border-slate-100`
+            }`}
           >
             <div className="shrink-0 md:text-center md:w-20">
               <div className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">
                 Phase
               </div>
-              <div className={`font-black text-xl md:text-3xl mt-0.5 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+              <div
+                className={`font-black text-xl md:text-3xl mt-0.5 ${
+                  isDark ? "text-white" : "text-slate-800"
+                }`}
+              >
                 {p.phase.replace("Phase ", "")}
               </div>
             </div>
-            
+
             <div className="flex-1">
-              <div className={`font-black text-base md:text-lg mb-1.5 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+              <div
+                className={`font-black text-base md:text-lg mb-1.5 ${
+                  isDark ? "text-white" : "text-slate-800"
+                }`}
+              >
                 {p.title}
               </div>
               <div className="flex flex-col gap-1.5">
                 {p.items.map((item) => (
                   <div
                     key={item}
-                    className={`flex items-start gap-2 text-xs md:text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}
+                    className={`flex items-start gap-2 text-xs md:text-sm ${
+                      isDark ? "text-slate-300" : "text-slate-600"
+                    }`}
                   >
                     <CheckCircle
                       size={14}
@@ -918,15 +1373,49 @@ function Slide8({ isDark }) {
   );
 }
 
+function Slide9({ isDark }) {
+  return (
+    <div
+      className={`h-full flex flex-col items-center justify-center px-4 md:px-6 py-6 text-center ${
+        isDark ? "bg-slate-900" : "bg-slate-50"
+      }`}
+    >
+      <div className="w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30 mb-8">
+        <Sun className="text-white" size={45} />
+      </div>
+
+      <h1
+        className={`text-4xl md:text-5xl font-black tracking-tight ${
+          isDark ? "text-white" : "text-slate-800"
+        }`}
+        style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+      >
+        Thank You.
+      </h1>
+    </div>
+  );
+}
+
 const SLIDES = [
   { id: 1, title: "Overview", shortTitle: "Intro", component: Slide1 },
-  { id: 2, title: "Problem Statement", shortTitle: "Problem", component: Slide2 },
+  {
+    id: 2,
+    title: "Problem Statement",
+    shortTitle: "Problem",
+    component: Slide2,
+  },
   { id: 3, title: "SDG Alignment", shortTitle: "SDGs", component: Slide3 },
-  { id: 4, title: "Solution Architecture", shortTitle: "Solution", component: Slide4 },
+  {
+    id: 4,
+    title: "Solution Architecture",
+    shortTitle: "Solution",
+    component: Slide4,
+  },
   { id: 5, title: "Measurable Goals", shortTitle: "Goals", component: Slide5 },
   { id: 6, title: "Tech Stack", shortTitle: "Tech", component: Slide6 },
   { id: 7, title: "User Testing", shortTitle: "Testing", component: Slide7 },
   { id: 8, title: "Roadmap", shortTitle: "Roadmap", component: Slide8 },
+  { id: 9, title: "Thank You", shortTitle: "End", component: Slide9 }, // NEW SLIDE ADDED
 ];
 
 export default function App() {
@@ -950,30 +1439,48 @@ export default function App() {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-2 md:p-4 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-gradient-to-br from-slate-50 via-white to-emerald-50'}`}
+      className={`min-h-screen flex items-center justify-center p-2 md:p-4 transition-colors duration-300 ${
+        isDark
+          ? "bg-slate-950"
+          : "bg-gradient-to-br from-slate-50 via-white to-emerald-50"
+      }`}
       style={{ fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif" }}
     >
       <div className="w-full max-w-5xl h-[95vh] md:h-auto flex flex-col md:block">
-        
         {/* Top Header */}
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/20">
               <Sun size={16} className="text-white" />
             </div>
-            <span className={`font-black text-sm tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            <span
+              className={`font-black text-sm tracking-tight ${
+                isDark ? "text-white" : "text-slate-800"
+              }`}
+            >
               EcoTrade
             </span>
           </div>
-          
+
           <div className="flex items-center gap-3 md:gap-4">
-            <div className={`text-xs md:text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              {current + 1} / {SLIDES.length} <span className="hidden md:inline">— {SLIDES[current].title}</span>
+            <div
+              className={`text-xs md:text-sm font-medium ${
+                isDark ? "text-slate-400" : "text-slate-500"
+              }`}
+            >
+              {current + 1} / {SLIDES.length}{" "}
+              <span className="hidden md:inline">
+                — {SLIDES[current].title}
+              </span>
             </div>
             {/* Theme Toggle Button */}
             <button
               onClick={() => setIsDark(!isDark)}
-              className={`p-2 rounded-xl transition-all duration-200 shadow-sm ${isDark ? 'bg-slate-800 text-yellow-400 hover:bg-slate-700' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'}`}
+              className={`p-2 rounded-xl transition-all duration-200 shadow-sm ${
+                isDark
+                  ? "bg-slate-800 text-yellow-400 hover:bg-slate-700"
+                  : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+              }`}
               title="Toggle Theme"
             >
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -991,8 +1498,12 @@ export default function App() {
                 i === current
                   ? "bg-emerald-500"
                   : i < current
-                  ? (isDark ? "bg-emerald-900" : "bg-emerald-200")
-                  : (isDark ? "bg-slate-800" : "bg-slate-200")
+                  ? isDark
+                    ? "bg-emerald-900"
+                    : "bg-emerald-200"
+                  : isDark
+                  ? "bg-slate-800"
+                  : "bg-slate-200"
               }`}
             />
           ))}
@@ -1007,7 +1518,9 @@ export default function App() {
               className={`flex-1 text-center text-[10px] md:text-[11px] font-semibold py-1 md:py-1.5 px-1 rounded-lg transition-all duration-200 ${
                 i === current
                   ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/20"
-                  : (isDark ? "text-slate-500 hover:text-slate-300 hover:bg-slate-800" : "text-slate-500 hover:text-slate-700 hover:bg-slate-100")
+                  : isDark
+                  ? "text-slate-500 hover:text-slate-300 hover:bg-slate-800"
+                  : "text-slate-500 hover:text-slate-700 hover:bg-slate-100"
               }`}
             >
               {s.shortTitle}
@@ -1018,9 +1531,11 @@ export default function App() {
         {/* Main Slide Card */}
         <div
           className={`flex-1 md:flex-none rounded-3xl shadow-xl overflow-hidden transition-all duration-200 ${
-            isDark ? 'bg-slate-900 border border-slate-700 shadow-black/40' : 'bg-white border border-slate-100 shadow-slate-200/60'
+            isDark
+              ? "bg-slate-900 border border-slate-700 shadow-black/40"
+              : "bg-white border border-slate-100 shadow-slate-200/60"
           } ${animating ? "opacity-0 scale-98" : "opacity-100 scale-100"}`}
-          style={{ minHeight: 'auto', md: { minHeight: 520 } }}
+          style={{ minHeight: "auto", md: { minHeight: 520 } }}
         >
           <SlideComponent isDark={isDark} />
         </div>
@@ -1032,8 +1547,12 @@ export default function App() {
             disabled={current === 0}
             className={`flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-2xl font-semibold text-xs md:text-sm transition-all duration-200 ${
               current === 0
-                ? (isDark ? "text-slate-700 cursor-not-allowed" : "text-slate-300 cursor-not-allowed")
-                : (isDark ? "text-slate-300 hover:bg-slate-800 hover:text-white" : "text-slate-600 hover:bg-slate-100 hover:text-slate-800")
+                ? isDark
+                  ? "text-slate-700 cursor-not-allowed"
+                  : "text-slate-300 cursor-not-allowed"
+                : isDark
+                ? "text-slate-300 hover:bg-slate-800 hover:text-white"
+                : "text-slate-600 hover:bg-slate-100 hover:text-slate-800"
             }`}
           >
             <ChevronLeft size={16} />
@@ -1048,7 +1567,9 @@ export default function App() {
                 className={`w-2 h-2 rounded-full transition-all duration-200 ${
                   i === current
                     ? "bg-emerald-500 w-6"
-                    : (isDark ? "bg-slate-700 hover:bg-slate-600" : "bg-slate-200 hover:bg-slate-300")
+                    : isDark
+                    ? "bg-slate-700 hover:bg-slate-600"
+                    : "bg-slate-200 hover:bg-slate-300"
                 }`}
               />
             ))}
@@ -1059,7 +1580,9 @@ export default function App() {
             disabled={current === SLIDES.length - 1}
             className={`flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-2xl font-semibold text-xs md:text-sm transition-all duration-200 ${
               current === SLIDES.length - 1
-                ? (isDark ? "text-slate-700 cursor-not-allowed" : "text-slate-300 cursor-not-allowed")
+                ? isDark
+                  ? "text-slate-700 cursor-not-allowed"
+                  : "text-slate-300 cursor-not-allowed"
                 : "bg-emerald-500 text-white shadow-md shadow-emerald-500/20 hover:bg-emerald-600"
             }`}
           >
@@ -1067,7 +1590,6 @@ export default function App() {
             <ChevronRight size={16} />
           </button>
         </div>
-
       </div>
     </div>
   );
