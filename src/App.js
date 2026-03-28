@@ -1,19 +1,5 @@
 import { useState } from "react";
 import {
-  BarChart,
-  Bar,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-} from "recharts";
-import {
   Sun,
   Moon,
   Zap,
@@ -36,47 +22,6 @@ import {
   Brain,
   Activity,
 } from "lucide-react";
-
-// --- DATA (Fully Restored) ---
-const gridMixData = [
-  { year: "2020", fossil: 82, renewable: 18 },
-  { year: "2022", fossil: 79, renewable: 21 },
-  { year: "2024", fossil: 76, renewable: 24 },
-  { year: "2030*", fossil: 55, renewable: 45 },
-  { year: "2035*", fossil: 40, renewable: 60 },
-  { year: "2050*", fossil: 30, renewable: 70 },
-];
-
-const prosumerROIData = [
-  { month: "Jan", baseline: 120, ecotrade: 145 },
-  { month: "Feb", baseline: 118, ecotrade: 152 },
-  { month: "Mar", baseline: 125, ecotrade: 168 },
-  { month: "Apr", baseline: 130, ecotrade: 179 },
-  { month: "May", baseline: 140, ecotrade: 198 },
-  { month: "Jun", baseline: 145, ecotrade: 215 },
-  { month: "Jul", baseline: 143, ecotrade: 224 },
-  { month: "Aug", baseline: 141, ecotrade: 231 },
-];
-
-const energyFlowData = [
-  { hour: "6am", surplus: 5, local: 3, grid: 2 },
-  { hour: "8am", surplus: 18, local: 12, grid: 6 },
-  { hour: "10am", surplus: 42, local: 30, grid: 12 },
-  { hour: "12pm", surplus: 68, local: 55, grid: 13 },
-  { hour: "2pm", surplus: 72, local: 62, grid: 10 },
-  { hour: "4pm", surplus: 48, local: 42, grid: 6 },
-  { hour: "6pm", surplus: 20, local: 20, grid: 0 },
-  { hour: "8pm", surplus: 4, local: 4, grid: 0 },
-];
-
-// --- HELPER TO GET CHART TOOLTIP STYLE BASED ON THEME ---
-const getTooltipStyle = (isDark) => ({
-  backgroundColor: isDark ? "#1e293b" : "#ffffff",
-  borderColor: isDark ? "#334155" : "#e2e8f0",
-  color: isDark ? "#f8fafc" : "#0f172a",
-  fontSize: 13,
-  borderRadius: 12,
-});
 
 // --- SLIDE COMPONENTS ---
 
@@ -257,8 +202,8 @@ function Slide2({ isDark }) {
             colorLight: "bg-blue-50 border-blue-100",
             iconColorDark: "text-blue-400",
             iconColorLight: "text-blue-500",
-            title: "Fossil Dominance",
-            body: "Despite massive solar potential, Malaysia remains 80% reliant on fossil fuels while electricity demand is projected to surge 20%.",
+            title: "The NETR Target Gap",
+            body: "Despite aggressive NETR targets aiming for 12% solar PV capacity by 2025, actual solar generation is stalled at roughly 2% due to strict hardware ownership barriers.",
           },
           {
             icon: <Shield size={24} />,
@@ -272,26 +217,26 @@ function Slide2({ isDark }) {
         ].map((card) => (
           <div
             key={card.title}
-            className={`border rounded-2xl p-4 ${
+            className={`border rounded-2xl p-4 md:p-6 flex flex-col justify-center ${
               isDark ? card.colorDark : card.colorLight
             }`}
           >
             <div
-              className={`mb-2 ${
+              className={`mb-3 ${
                 isDark ? card.iconColorDark : card.iconColorLight
               }`}
             >
               {card.icon}
             </div>
             <div
-              className={`font-black text-base md:text-lg mb-1 ${
+              className={`font-black text-base md:text-xl mb-2 ${
                 isDark ? "text-white" : "text-slate-800"
               }`}
             >
               {card.title}
             </div>
             <div
-              className={`text-xs md:text-sm leading-relaxed ${
+              className={`text-sm md:text-base leading-relaxed ${
                 isDark ? "text-slate-300" : "text-slate-600"
               }`}
             >
@@ -299,49 +244,6 @@ function Slide2({ isDark }) {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="flex-1 min-h-[200px] md:min-h-0">
-        <div
-          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${
-            isDark ? "text-slate-300" : "text-slate-800"
-          }`}
-        >
-          Malaysia Grid Mix Trend & NETR Target (70% Renewables by 2050)
-        </div>
-        <ResponsiveContainer width="100%" height={160}>
-          <BarChart data={gridMixData} barCategoryGap="25%">
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke={isDark ? "#334155" : "#f1f5f9"}
-            />
-            <XAxis dataKey="year" tick={{ fontSize: 12, fill: "#94a3b8" }} />
-            <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} unit="%" />
-            <Tooltip
-              formatter={(v) => `${v}%`}
-              contentStyle={getTooltipStyle(isDark)}
-              itemStyle={{ color: isDark ? "#f8fafc" : "#0f172a" }}
-            />
-            <Legend
-              wrapperStyle={{
-                fontSize: 13,
-                color: isDark ? "#f8fafc" : "#0f172a",
-              }}
-            />
-            <Bar
-              dataKey="fossil"
-              name="Fossil Fuel %"
-              fill={isDark ? "#ef4444" : "#fca5a5"}
-              radius={[4, 4, 0, 0]}
-            />
-            <Bar
-              dataKey="renewable"
-              name="Renewable %"
-              fill={isDark ? "#10b981" : "#6ee7b7"}
-              radius={[4, 4, 0, 0]}
-            />
-          </BarChart>
-        </ResponsiveContainer>
       </div>
     </div>
   );
@@ -406,7 +308,7 @@ function Slide3({ isDark }) {
         {sdgs.map((sdg) => (
           <div
             key={sdg.num}
-            className={`border rounded-3xl p-5 md:p-6 shadow-lg flex flex-col h-full ${
+            className={`border rounded-3xl p-5 md:p-6 shadow-lg flex flex-col h-full justify-between ${
               isDark
                 ? "bg-slate-800 border-slate-700"
                 : "bg-white border-slate-100"
@@ -432,7 +334,7 @@ function Slide3({ isDark }) {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 mt-2 flex-1">
+            <div className="flex flex-col gap-2 mt-2 mb-4">
               {sdg.targets.map((t) => (
                 <div key={t} className="flex items-start gap-3">
                   <CheckCircle
@@ -451,7 +353,7 @@ function Slide3({ isDark }) {
             </div>
 
             <div
-              className={`text-sm md:text-base p-4 rounded-2xl leading-relaxed border mt-4 ${
+              className={`text-sm md:text-base p-4 rounded-2xl leading-relaxed border mt-auto ${
                 isDark
                   ? "bg-slate-900/50 border-slate-700 text-slate-400"
                   : "bg-slate-50 border-slate-100 text-slate-600"
@@ -470,28 +372,28 @@ function Slide4({ isDark }) {
   const components = [
     {
       title: "Fractional P2P Dashboard",
-      icon: <Users size={18} />,
+      icon: <Users size={24} />,
       colorDark: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
       colorLight: "bg-emerald-50 border-emerald-200 text-emerald-800",
       desc: "Lowers entry barrier, allowing consumers to buy/sell clean energy without owning a physical solar system.",
     },
     {
       title: "AI Energy Routing & Pricing",
-      icon: <Brain size={18} />,
+      icon: <Brain size={24} />,
       colorDark: "bg-purple-500/10 border-purple-500/20 text-purple-400",
       colorLight: "bg-purple-50 border-purple-200 text-purple-800",
       desc: "Analyzes Smart Meter TOU & voltage to dynamically decide whether to store, P2P sell, or export to TNB.",
     },
     {
       title: "ESS Management Engine",
-      icon: <Battery size={18} />,
+      icon: <Battery size={24} />,
       colorDark: "bg-blue-500/10 border-blue-500/20 text-blue-400",
       colorLight: "bg-blue-50 border-blue-200 text-blue-800",
       desc: "Intelligently holds excess solar or cheap off-peak energy until it can be sold at a premium peak price.",
     },
     {
       title: "Carbon Impact Tracker",
-      icon: <Leaf size={18} />,
+      icon: <Leaf size={24} />,
       colorDark: "bg-green-500/10 border-green-500/20 text-green-400",
       colorLight: "bg-green-50 border-green-200 text-green-800",
       desc: "Translates traded energy into tangible metric tons of CO₂ equivalent reduced to track SDG progress.",
@@ -522,20 +424,20 @@ function Slide4({ isDark }) {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         {components.map((c, i) => (
           <div
             key={c.title}
-            className={`border rounded-2xl p-4 flex flex-col gap-2 ${
+            className={`border rounded-2xl p-5 md:p-6 flex flex-col gap-3 justify-center ${
               isDark ? c.colorDark : c.colorLight
             }`}
           >
-            <div className="flex items-center gap-2 font-black text-sm md:text-base leading-tight">
+            <div className="flex items-center gap-3 font-black text-lg md:text-xl leading-tight">
               {c.icon}
               <span>{c.title}</span>
             </div>
             <div
-              className={`text-xs md:text-sm opacity-90 leading-relaxed flex-1 ${
+              className={`text-sm md:text-base opacity-90 leading-relaxed ${
                 isDark ? "text-slate-300" : "text-slate-700"
               }`}
             >
@@ -543,60 +445,6 @@ function Slide4({ isDark }) {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="flex-1 min-h-[200px] md:min-h-0">
-        <div
-          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${
-            isDark ? "text-slate-300" : "text-slate-800"
-          }`}
-        >
-          Solar Energy Flow — Local Capture vs Grid Export (kWh)
-        </div>
-        <ResponsiveContainer width="100%" height={200}>
-          <AreaChart data={energyFlowData}>
-            <defs>
-              <linearGradient id="localGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10b981" stopOpacity={0.4} />
-                <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
-              </linearGradient>
-              <linearGradient id="gridGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#ef4444" stopOpacity={0.4} />
-                <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke={isDark ? "#334155" : "#f1f5f9"}
-            />
-            <XAxis dataKey="hour" tick={{ fontSize: 12, fill: "#94a3b8" }} />
-            <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} unit="kWh" />
-            <Tooltip contentStyle={getTooltipStyle(isDark)} />
-            <Legend
-              wrapperStyle={{
-                fontSize: 13,
-                color: isDark ? "#f8fafc" : "#0f172a",
-              }}
-            />
-            <Area
-              type="monotone"
-              dataKey="local"
-              name="Local P2P Consumption"
-              stroke="#10b981"
-              fill="url(#localGrad)"
-              strokeWidth={2.5}
-            />
-            <Area
-              type="monotone"
-              dataKey="grid"
-              name="Grid Export (SMP)"
-              stroke={isDark ? "#ef4444" : "#f87171"}
-              fill="url(#gridGrad)"
-              strokeWidth={2}
-              strokeDasharray="5 3"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
       </div>
     </div>
   );
@@ -615,12 +463,12 @@ function Slide5({ isDark }) {
         {
           label: "Yield Improvement",
           value: "↑ % vs NEM",
-          icon: <TrendingUp size={16} />,
+          icon: <TrendingUp size={20} />,
         },
         {
           label: "Execution Latency",
           value: "< 200ms",
-          icon: <Zap size={16} />,
+          icon: <Zap size={20} />,
         },
       ],
     },
@@ -635,12 +483,12 @@ function Slide5({ isDark }) {
         {
           label: "ESS Utilization",
           value: "Max Midday",
-          icon: <Battery size={16} />,
+          icon: <Battery size={20} />,
         },
         {
           label: "Data Accuracy",
           value: "99.9%",
-          icon: <Activity size={16} />,
+          icon: <Activity size={20} />,
         },
       ],
     },
@@ -652,11 +500,11 @@ function Slide5({ isDark }) {
       titleColorDark: "text-purple-400",
       titleColorLight: "text-purple-800",
       metrics: [
-        { label: "GHG Avoided", value: "mt CO₂e/mo", icon: <Leaf size={16} /> },
+        { label: "GHG Avoided", value: "mt CO₂e/mo", icon: <Leaf size={20} /> },
         {
           label: "User Growth",
           value: "Active +% MoM",
-          icon: <Users size={16} />,
+          icon: <Users size={20} />,
         },
       ],
     },
@@ -686,52 +534,52 @@ function Slide5({ isDark }) {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         {goals.map((g) => (
           <div
             key={g.title}
-            className={`border rounded-2xl p-4 flex flex-col gap-3 shadow-sm ${
+            className={`border rounded-2xl p-5 md:p-6 flex flex-col gap-4 shadow-sm ${
               isDark ? g.colorDark : g.colorLight
             }`}
           >
             <div>
               <div
-                className={`font-black text-base md:text-lg ${
+                className={`font-black text-lg md:text-xl mb-2 ${
                   isDark ? g.titleColorDark : g.titleColorLight
                 }`}
               >
                 {g.title}
               </div>
               <div
-                className={`text-xs md:text-sm mt-1 ${
+                className={`text-sm md:text-base ${
                   isDark ? "text-slate-300" : "text-slate-600"
                 }`}
               >
                 {g.desc}
               </div>
             </div>
-            <div className="flex flex-col gap-2 mt-auto">
+            <div className="flex flex-col gap-3 mt-auto">
               {g.metrics.map((m) => (
                 <div
                   key={m.label}
-                  className={`border rounded-xl p-3 shadow-sm flex items-center justify-between ${
+                  className={`border rounded-xl p-4 shadow-sm flex items-center justify-between ${
                     isDark
                       ? "bg-slate-800/80 border-slate-700"
                       : "bg-white border-slate-100"
                   }`}
                 >
                   <div
-                    className={`flex items-center gap-2 ${
+                    className={`flex items-center gap-3 ${
                       isDark ? "text-slate-400" : "text-slate-500"
                     }`}
                   >
                     {m.icon}
-                    <span className="text-xs md:text-sm font-semibold">
+                    <span className="text-sm md:text-base font-semibold">
                       {m.label}
                     </span>
                   </div>
                   <span
-                    className={`font-black text-xs md:text-sm ${
+                    className={`font-black text-sm md:text-base ${
                       isDark ? "text-white" : "text-slate-800"
                     }`}
                   >
@@ -742,50 +590,6 @@ function Slide5({ isDark }) {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="flex-1 min-h-[200px] md:min-h-0">
-        <div
-          className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-2 ${
-            isDark ? "text-slate-300" : "text-slate-800"
-          }`}
-        >
-          Goal 1 Indicator: Baseline NEM/SMP vs EcoTrade P2P (RM/month)
-        </div>
-        <ResponsiveContainer width="100%" height={160}>
-          <LineChart data={prosumerROIData}>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke={isDark ? "#334155" : "#f1f5f9"}
-            />
-            <XAxis dataKey="month" tick={{ fontSize: 12, fill: "#94a3b8" }} />
-            <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} unit="RM" />
-            <Tooltip contentStyle={getTooltipStyle(isDark)} />
-            <Legend
-              wrapperStyle={{
-                fontSize: 13,
-                color: isDark ? "#f8fafc" : "#0f172a",
-              }}
-            />
-            <Line
-              type="monotone"
-              dataKey="baseline"
-              name="Baseline NEM/SMP"
-              stroke="#94a3b8"
-              strokeWidth={2}
-              strokeDasharray="5 3"
-              dot={{ r: 3 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="ecotrade"
-              name="EcoTrade P2P"
-              stroke="#10b981"
-              strokeWidth={3}
-              dot={{ r: 5, fill: "#10b981" }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
       </div>
     </div>
   );
@@ -1381,7 +1185,7 @@ function Slide9({ isDark }) {
       }`}
     >
       <div className="w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30 mb-8">
-        <Sun className="text-white" size={45} />
+        <Sun className="text-white" size={48} />
       </div>
 
       <h1
@@ -1415,7 +1219,7 @@ const SLIDES = [
   { id: 6, title: "Tech Stack", shortTitle: "Tech", component: Slide6 },
   { id: 7, title: "User Testing", shortTitle: "Testing", component: Slide7 },
   { id: 8, title: "Roadmap", shortTitle: "Roadmap", component: Slide8 },
-  { id: 9, title: "Thank You", shortTitle: "End", component: Slide9 }, // NEW SLIDE ADDED
+  { id: 9, title: "Thank You", shortTitle: "End", component: Slide9 },
 ];
 
 export default function App() {
@@ -1530,7 +1334,7 @@ export default function App() {
 
         {/* Main Slide Card */}
         <div
-          className={`flex-1 md:flex-none rounded-3xl shadow-xl overflow-hidden transition-all duration-200 ${
+          className={`flex-1 md:flex-none rounded-3xl shadow-xl overflow-hidden transition-all duration-200 flex flex-col ${
             isDark
               ? "bg-slate-900 border border-slate-700 shadow-black/40"
               : "bg-white border border-slate-100 shadow-slate-200/60"
