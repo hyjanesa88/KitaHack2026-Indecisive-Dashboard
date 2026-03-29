@@ -117,7 +117,7 @@ const electricityShareData = [
   { source: "Wind", value: 0.0, fill: "#cccccc" },
 ];
 
-// --- ALL 40 ROWS FOR CSV DATA (All Columns Included) ---
+// --- ALL 40 ROWS FOR CSV DATA ---
 const userFeedbackData = [
   {
     id: "U001",
@@ -893,7 +893,7 @@ function Slide2({ isDark }) {
             </div>
           </div>
           <div
-            className={`text-sm font-semibold leading-relaxed mb-3 ${
+            className={`text-base md:text-lg font-semibold leading-relaxed mb-6 ${
               isDark ? "text-slate-200" : "text-slate-700"
             }`}
           >
@@ -920,7 +920,6 @@ function Slide2({ isDark }) {
                     fontSize: 11,
                     fontWeight: "bold",
                   }}
-                  reversed={true} // Forces Coal and Gas to the TOP
                 />
                 <Tooltip
                   cursor={{
@@ -981,7 +980,7 @@ function Slide2({ isDark }) {
           </div>
 
           <div
-            className={`text-sm leading-relaxed ${
+            className={`text-base md:text-lg leading-relaxed ${
               isDark ? "text-slate-300" : "text-slate-600"
             }`}
           >
@@ -1019,6 +1018,15 @@ function Slide2({ isDark }) {
                   does not involve any cash transactions
                 </span>
                 ."
+              </p>
+              <p
+                className={`text-[10px] md:text-xs mt-4 font-medium italic ${
+                  isDark ? "text-slate-400" : "text-slate-500"
+                }`}
+              >
+                Source: Suruhanjaya Tenaga (Energy Commission), Guidelines for
+                Solar Accelerated Transition Action Programme (GP/ST/No.
+                60/2025), December 2025.
               </p>
             </div>
           </div>
@@ -1150,7 +1158,7 @@ function SlideTargetUser({ isDark }) {
               {u.title}
             </h3>
             <p
-              className={`text-sm md:text-base leading-relaxed ${
+              className={`text-base md:text-lg leading-relaxed ${
                 isDark ? "text-slate-300" : "text-slate-600"
               }`}
             >
@@ -1202,7 +1210,7 @@ function SlideTesting({ isDark }) {
       <div className="flex-1 flex flex-col gap-4 pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div
-            className={`border rounded-3xl p-5 md:p-6 ${
+            className={`border rounded-3xl p-4 md:p-5 ${
               isDark
                 ? "bg-slate-800 border-slate-700"
                 : "bg-white border-slate-200"
@@ -1215,14 +1223,14 @@ function SlideTesting({ isDark }) {
               }
             />
             <h3
-              className={`font-bold text-lg mb-2 ${
+              className={`font-bold text-xl mb-2 ${
                 isDark ? "text-white" : "text-slate-800"
               }`}
             >
               Autopilot is Opt-In, Always
             </h3>
             <p
-              className={`text-sm mb-4 ${
+              className={`text-base md:text-lg mb-4 ${
                 isDark ? "text-slate-300" : "text-slate-600"
               }`}
             >
@@ -1259,7 +1267,7 @@ function SlideTesting({ isDark }) {
           </div>
 
           <div
-            className={`border rounded-3xl p-5 md:p-6 ${
+            className={`border rounded-3xl p-4 md:p-5 ${
               isDark
                 ? "bg-slate-800 border-slate-700"
                 : "bg-white border-slate-200"
@@ -1270,14 +1278,14 @@ function SlideTesting({ isDark }) {
               className={isDark ? "text-amber-400 mb-3" : "text-amber-500 mb-3"}
             />
             <h3
-              className={`font-bold text-lg mb-2 ${
+              className={`font-bold text-xl mb-2 ${
                 isDark ? "text-white" : "text-slate-800"
               }`}
             >
               Layered Hallucination Prevention
             </h3>
             <p
-              className={`text-sm mb-4 ${
+              className={`text-base md:text-lg mb-4 ${
                 isDark ? "text-slate-300" : "text-slate-600"
               }`}
             >
@@ -1344,7 +1352,7 @@ function SlideTesting({ isDark }) {
               }`}
             >
               <span
-                className={`self-start text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-md mb-3 ${
+                className={`self-start text-[10px] md:text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-md mb-3 ${
                   isDark
                     ? "bg-emerald-500/10 text-emerald-400"
                     : "bg-emerald-50 text-emerald-600"
@@ -1353,7 +1361,7 @@ function SlideTesting({ isDark }) {
                 {layer.tag}
               </span>
               <h4
-                className={`font-bold text-sm mb-1.5 flex items-center gap-2 ${
+                className={`font-bold text-base md:text-lg mb-1.5 flex items-center gap-2 ${
                   isDark ? "text-white" : "text-slate-800"
                 }`}
               >
@@ -1363,7 +1371,7 @@ function SlideTesting({ isDark }) {
                 {layer.title}
               </h4>
               <p
-                className={`text-xs leading-relaxed ${
+                className={`text-sm md:text-base leading-relaxed ${
                   isDark ? "text-slate-400" : "text-slate-600"
                 }`}
               >
@@ -1441,8 +1449,8 @@ function SlideRoadmap({ isDark }) {
 
       {/* Horizontal Zigzag Timeline container */}
       <div className="flex-1 flex items-center justify-center w-full overflow-x-auto pb-6 custom-scrollbar">
-        <div className="min-w-[1000px] w-full relative h-[400px] flex flex-col justify-center px-6">
-          {/* Unoccluded Top Background Headers WITHOUT the sub-text */}
+        <div className="min-w-[1100px] w-full relative h-[450px] flex flex-col justify-center px-6">
+          {/* Unoccluded Top Background Headers */}
           <div className="absolute top-0 left-0 right-0 flex w-full select-none">
             <div className="w-1/2 flex flex-col items-center border-t-4 border-emerald-500 pt-4 px-4">
               <h3
@@ -1473,7 +1481,7 @@ function SlideRoadmap({ isDark }) {
               return (
                 <div
                   key={p.label}
-                  className="relative flex flex-col items-center w-[150px]"
+                  className="relative flex flex-col items-center w-[180px]"
                 >
                   {/* Node on the line */}
                   <div
@@ -1493,7 +1501,7 @@ function SlideRoadmap({ isDark }) {
 
                   {/* Enlarge Card Content */}
                   <div
-                    className={`absolute w-[180px] ${
+                    className={`absolute w-[220px] ${
                       isTop ? "bottom-[60px]" : "top-[60px]"
                     } p-5 rounded-3xl border shadow-xl ${
                       isDark
@@ -1508,12 +1516,12 @@ function SlideRoadmap({ isDark }) {
                     }}
                   >
                     <div
-                      className={`font-black text-sm md:text-base mb-2 ${p.textColor}`}
+                      className={`font-black text-base md:text-lg mb-2 ${p.textColor}`}
                     >
                       {p.label}
                     </div>
                     <p
-                      className={`text-[11px] md:text-xs leading-relaxed font-medium ${
+                      className={`text-sm md:text-base leading-relaxed font-medium ${
                         isDark ? "text-slate-300" : "text-slate-600"
                       }`}
                     >
@@ -1963,7 +1971,7 @@ function Slide10_Graphs({ isDark }) {
           </div>
         </div>
 
-        {/* CHART 2: Electricity Share (Restored Exact Colors) */}
+        {/* CHART 2: Electricity Share */}
         <div
           className={`border rounded-3xl p-5 md:p-6 shadow-sm ${
             isDark
